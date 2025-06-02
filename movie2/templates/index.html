@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кино Тизмеси</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .movie { margin-bottom: 30px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+        .title { font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🎬 Кино Тизмеси</h1>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="Кино издөө..." value="{{ query }}">
+        <button type="submit">Издөө</button>
+    </form>
+
+    {% for movie in movies %}
+        <div class="movie">
+            <div class="title">{{ movie.title }}</div>
+            <p><strong>Актерлор:</strong> {{ movie.actors | join(', ') }}</p>
+            <p><strong>Сеанстар:</strong> {{ movie.sessions | join(', ') }}</p>
+            <a href="{{ url_for('add_actor', movie_title=movie.title) }}">➕ Актер кошуу</a>
+        </div>
+    {% else %}
+        <p>Кино табылган жок.</p>
+    {% endfor %}
+</body>
+</html>

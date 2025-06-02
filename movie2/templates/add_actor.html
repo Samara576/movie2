@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Актер кошуу</title>
+</head>
+<body>
+    <h1>🎭 Актер кошуу - {{ movie.title }}</h1>
+    <form method="post">
+        <label>Актердин аты:</label><br>
+        <input type="text" name="actor" required>
+        <button type="submit">Кошуу</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">⬅ Артка кайтуу</a>
+</body>
+</html>
